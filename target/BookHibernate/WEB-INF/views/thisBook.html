@@ -51,17 +51,14 @@
         <td><input type="text" th:field="*{owner.address}"></td>
     </tr>
 
-    <tr th:each="book:${getBook.buyers}">
+    <tr th:each="buyer:${getBook.buyers}">
         <td>Buyer's name</td>
-        <td><input type="text" th:field="*{book.name}"></td>
+        <td><th:input type="text" th:text="${buyer.name}"/></td>
     </tr>
-<!--    <tr>-->
-<!--        <td>Buyer's phone</td>-->
-<!--        <td><input type="text" th:field="*{buyer.phone}"></td>-->
-<!--    </tr>-->
 
 </table>
-    <button>Update book</button>
+    <!--<button>Update book</button>-->
+    <input type="submit" value="Update">
 </form>
 </body>
 </html>

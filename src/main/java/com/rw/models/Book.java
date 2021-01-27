@@ -21,6 +21,7 @@ public class Book {
 
     private String style;
 
+    @Column(name = "amount")
     private int amountPages;
 
     private String description;
