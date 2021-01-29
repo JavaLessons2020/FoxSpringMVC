@@ -23,6 +23,10 @@ public class Owner {
         this.address = address;
     }
 
+    public void setBookSet(Set<Book> bookSet) {
+        this.bookSet = bookSet;
+    }
+
     public int getId() {
         return id;
     }
@@ -47,12 +51,12 @@ public class Owner {
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "Owner{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}'+"\n";
-    }
+//    @Override
+//    public String toString() {
+//        return "Owner{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", address='" + address + '\'' +
+//                '}'+"\n";
+   // }
 }

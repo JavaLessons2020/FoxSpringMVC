@@ -19,6 +19,9 @@ public class Buyer {
                 inverseJoinColumns = @JoinColumn(name = "id_book"))
     Set<Book> books = new HashSet<>();
 
+
+
+
     public Buyer(){}
 
     public Buyer(String name, String phone, Set<Book> books) {
@@ -59,13 +62,13 @@ public class Buyer {
         this.books = books;
     }
 
-    @Override
-    public String toString() {
-        return "Buyer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                //", books=" + books +
-                '}'+"\n";
-    }
+//    @Override
+//    public String toString() {
+//        return "Buyer{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", phone='" + phone + '\'' +
+//                //", books=" + books +
+//                '}'+"\n";
+//    }
 }

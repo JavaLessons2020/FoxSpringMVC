@@ -85,6 +85,15 @@
       <version>6.1.6.Final</version>
     </dependency>
 
+
+    <!-- selenium-java -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>3.141.59</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>

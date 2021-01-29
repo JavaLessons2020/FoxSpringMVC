@@ -24,30 +24,19 @@ public class DaoHib {
         return sessionFactory.openSession();
     }
 
-    //запись в БД(вносить можно с помощью set)
-        /*Person person = new Person("Name_4",17);
-        session.save(person);
-        transaction.commit();  */
-
     //получение по id
     public Book getBookId(int id) {
         Session session = mySession();
         Transaction transaction = session.beginTransaction();
         Book book = session.get(Book.class, id);
         System.out.println(book);
-        //mySession().close();
+        mySession().close();
         transaction.commit();
         return book;
     }
 
     //получение всех данных с таблицы
     public List<Book> getAllBooks() {
-//        Transaction transaction = mySession().beginTransaction();
-//        List<Book> allBooks = mySession().createQuery("FROM Book").list();
-//        System.out.println(allBooks);
-//        mySession().close();
-//        transaction.commit();
-//        return allBooks;
         Session session;
         try {
             session = sessionFactory.getCurrentSession();
@@ -79,19 +68,20 @@ public class DaoHib {
     //изменение данных в объекте
     public void updateBook(Book newBook) {
         Transaction transaction = null;
-        Book book = mySession().get(Book.class, newBook.getId());
-        book = newBook;
+        //Book book = mySession().get(Book.class, newBook.getId());
+        //book = newBook;
 
-        Session session = mySession();
-//        book.setName(newBook.getName());
-//        book.setAuthor(newBook.getAuthor());
-//        book.setYour(newBook.getYour());
-//        book.setStyle(newBook.getStyle());
-//        book.setAmountPages(newBook.getAmountPages());
-//        book.setDescription(newBook.getDescription());
+        Session session;
+
+        try {
+            session = mySession();
+        } catch (HibernateException ex) {
+            session = mySession();
+        }
+
         try {
             transaction = session.beginTransaction();
-            session.update(book);
+            session.update(newBook);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,29 +92,15 @@ public class DaoHib {
         }
 
     }
-    //изменение данных в объекте(данные обновляются автоматически)
-        /*Person person = session.get(Person.class, 1);
-        System.out.println(person);
-        person.setAge(16);
-        System.out.println(person);
-        transaction.commit();   */
 
     //удаление объекта
     public void remove(int id) {
-//        Transaction transaction = mySession().beginTransaction();
-        Book book = mySession().get(Book.class, id);
-//        //mySession().delete(book);
-        //Book book = (Book) mySession().load(Book.class, id);
-//
-//        if (book != null) {
-//            mySession().delete(book);
-//        }
-//        //mySession().close();
-//        transaction.commit();
-
         Session session;
+        Book book = null;
+
         try {
-            session = sessionFactory.getCurrentSession();
+            session = mySession();
+            book = session.get(Book.class, id);
         } catch (HibernateException ex) {
             session = mySession();
         }
@@ -135,7 +111,7 @@ public class DaoHib {
             session.delete(book);
             transaction.commit();
         } catch (HibernateException ex) {
-            System.out.println("Error deleting car: " + ex);
+            System.out.println("Error deleting book: " + ex);
             if (transaction != null) {
                 transaction.rollback();
             }
