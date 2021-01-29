@@ -26,6 +26,8 @@ public class Book {
 
     private String description;
 
+
+
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_owner")
     private Owner owner;
@@ -120,20 +122,7 @@ public class Book {
         this.buyers = buyers;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Book{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", author='" + author + '\'' +
-//                ", your='" + your + '\'' +
-//                ", style='" + style + '\'' +
-//                ", amountPages=" + amountPages +
-//                ", description='" + description + '\'' +
-//                ", owner=" + owner +
-//                ", buyers=" + buyers +
-//                '}'+"\n";
-//    }
+
 }
 
     

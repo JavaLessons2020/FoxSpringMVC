@@ -42,6 +42,10 @@
         <td>Description</td>
         <td><input type="text" th:field="*{description}"></td>
     </tr>
+    <tr >
+        <td>Owner's id</td>
+        <td> <input type="text" readonly th:field="*{owner.id}"></td>
+    </tr>
     <tr>
         <td>Owner's name</td>
         <td><input type="text" th:field="*{owner.name}"></td>

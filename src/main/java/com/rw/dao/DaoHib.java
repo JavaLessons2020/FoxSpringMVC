@@ -72,7 +72,6 @@ public class DaoHib {
         //book = newBook;
 
         Session session;
-
         try {
             session = mySession();
         } catch (HibernateException ex) {
