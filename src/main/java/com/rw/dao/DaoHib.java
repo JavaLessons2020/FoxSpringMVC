@@ -80,7 +80,7 @@ public class DaoHib {
 
         try {
             transaction = session.beginTransaction();
-            session.update(newBook);
+            session.merge(newBook);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();

@@ -28,7 +28,7 @@ public class Book {
 
 
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "id_owner")
     private Owner owner;
 
